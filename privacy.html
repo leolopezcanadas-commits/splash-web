@@ -22,24 +22,24 @@
 <main>
   <div class="brand">SPLASH</div>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: July 14, 2026</p>
+  <p class="muted">Last updated: September 14, 2026</p>
 
   <p>Splash ("the app") is an alarm app that verifies you are awake using a wet-face selfie. This policy explains what data the app handles, how, and why. The short version: <strong>your selfies are never stored, we don't sell data, and we collect the minimum needed to run the app.</strong></p>
 
   <h2>1. Who we are</h2>
   <p>Splash is developed by Leo López Cañadas, an independent developer based in Spain. Contact: <a href="mailto:splashalarm.app@gmail.com">splashalarm.app@gmail.com</a>.</p>
 
-  <h2>2. Selfie photos (camera)</h2>
+  <h2>2. Face data (wake-up selfie)</h2>
   <div class="card">
-    <strong>Your wake-up selfies are processed ephemerally and never stored.</strong>
+    <strong>Your wake-up selfie is used only to check that your face is wet. It is processed for a few seconds in memory, is never stored, is never used for facial recognition or identification, and is never shared beyond the AI processing described below.</strong>
   </div>
-  <p>When an alarm rings, Splash asks you to take a selfie with a wet face to prove you're awake. That photo is:</p>
+  <p>When an alarm rings, Splash asks you to take a selfie with a wet face to prove you're awake. This face image is the only face data the app handles, and it is used for a single purpose: to detect whether your face is visibly wet.</p>
   <ul>
-    <li>Sent over an encrypted connection (HTTPS) to our verification service, which uses an AI model to answer one question: does this photo show a wet face?</li>
-    <li>Processed in memory only, <strong>never written to storage</strong>, never used to train AI models, and discarded immediately after the check.</li>
-    <li>Never used to identify you, and never shared with anyone beyond the AI processing described above.</li>
+    <li><strong>What we collect:</strong> a single selfie photo of your face, captured at the moment you dismiss the alarm. We do not create, derive, or store any faceprint, biometric template, facial-recognition data, or identity information.</li>
+    <li><strong>How it is used:</strong> the photo is sent over an encrypted connection (HTTPS) to our verification service, which uses an AI model to answer one yes/no question — does this photo show a wet face? It is never used to identify you.</li>
+    <li><strong>Storage &amp; retention:</strong> the image is processed in memory only, <strong>never written to storage or any database</strong>, and <strong>discarded immediately</strong> after the check. Retention is zero — nothing about your face is kept once the verification completes.</li>
+    <li><strong>Sharing:</strong> the image is processed solely by Supabase (hosting) and Anthropic (AI analysis), acting as processors under our instructions. It is <strong>never used to train AI models</strong>, never sold, and never shared with any other third party.</li>
   </ul>
-  <p>Our verification runs on Supabase (hosting) and Anthropic (AI analysis), acting as processors under our instructions.</p>
 
   <h2>3. Purchases and subscriptions</h2>
   <p>Subscriptions are handled by Apple and managed through RevenueCat, our subscription infrastructure provider. RevenueCat receives anonymous purchase information (transaction details and a random app-specific identifier) so the app knows whether your subscription is active. We never see or store your payment details — Apple handles all payment processing.</p>
