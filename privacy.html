@@ -22,52 +22,65 @@
 <main>
   <div class="brand">SPLASH</div>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: September 14, 2026</p>
+  <p class="muted">Last updated: October 9, 2026</p>
 
-  <p>Splash ("the app") is an alarm app that verifies you are awake using a wet-face selfie. This policy explains what data the app handles, how, and why. The short version: <strong>your selfies are never stored, we don't sell data, and we collect the minimum needed to run the app.</strong></p>
+  <p>Splash ("the app") is an alarm app that verifies you are awake using a wet-face selfie. This policy explains what data the app handles, how, and why. The short version: <strong>we never store your selfies, we don't sell data, we don't track you, and we collect the minimum needed to run the app.</strong></p>
 
   <h2>1. Who we are</h2>
-  <p>Splash is developed by Leo López Cañadas, an independent developer based in Spain. Contact: <a href="mailto:splashalarm.app@gmail.com">splashalarm.app@gmail.com</a>.</p>
+  <p>Splash is developed by Leo López Cañadas, an independent developer based in Spain, who is the data controller. Contact: <a href="mailto:splashalarm.app@gmail.com">splashalarm.app@gmail.com</a>.</p>
 
-  <h2>2. Face data (wake-up selfie)</h2>
+  <h2>2. Your wake-up selfie</h2>
   <div class="card">
-    <strong>Your wake-up selfie is used only to check that your face is wet. It is processed for a few seconds in memory, is never stored, is never used for facial recognition or identification, and is never shared beyond the AI processing described below.</strong>
+    <strong>Your wake-up selfie is used only to check that your face is wet. Splash never stores it, never uses it to recognise or identify you, and it is never used to train AI models.</strong>
   </div>
-  <p>When an alarm rings, Splash asks you to take a selfie with a wet face to prove you're awake. This face image is the only face data the app handles, and it is used for a single purpose: to detect whether your face is visibly wet.</p>
   <ul>
-    <li><strong>What we collect:</strong> a single selfie photo of your face, captured at the moment you dismiss the alarm. We do not create, derive, or store any faceprint, biometric template, facial-recognition data, or identity information.</li>
-    <li><strong>How it is used:</strong> the photo is sent over an encrypted connection (HTTPS) to our verification service, which uses an AI model to answer one yes/no question — does this photo show a wet face? It is never used to identify you.</li>
-    <li><strong>Storage &amp; retention:</strong> the image is processed in memory only, <strong>never written to storage or any database</strong>, and <strong>discarded immediately</strong> after the check. Retention is zero — nothing about your face is kept once the verification completes.</li>
-    <li><strong>Sharing:</strong> the image is processed solely by Supabase (hosting) and Anthropic (AI analysis), acting as processors under our instructions. It is <strong>never used to train AI models</strong>, never sold, and never shared with any other third party.</li>
+    <li><strong>What is sent:</strong> one photo, cropped around your face on your iPhone, taken when you dismiss the alarm. No faceprint, biometric template or identity information is created.</li>
+    <li><strong>How it is used:</strong> the photo travels over an encrypted connection (HTTPS) to our verification service, which asks an AI model one question: does this photo show real water on a face, taken out of bed? The answer (and, on a "no", a short reason such as "too dark") comes back to the app.</li>
+    <li><strong>Who processes it:</strong> Supabase (hosting of our verification service) and Anthropic (the AI model), acting as our processors.</li>
+    <li><strong>How long it is kept:</strong> Splash does not save the photo anywhere: our service handles it in memory and keeps only the result (wet or not, a score and the signs seen, never the image or a description of your face). Anthropic, our AI provider, does not use it for training and by default deletes what it receives through its API within 30 days; it may keep content longer only if its automated safety systems flag it for misuse.</li>
+    <li><strong>Offline:</strong> if you have no internet when you take the selfie, the photo waits in the app's memory (never on disk) and is sent as soon as you're back online.</li>
   </ul>
 
-  <h2>3. Purchases and subscriptions</h2>
-  <p>Subscriptions are handled by Apple and managed through RevenueCat, our subscription infrastructure provider. RevenueCat receives anonymous purchase information (transaction details and a random app-specific identifier) so the app knows whether your subscription is active. We never see or store your payment details — Apple handles all payment processing.</p>
-
-  <h2>4. Data stored on your device</h2>
-  <p>Your alarms, wake-up history, and streaks are stored <strong>locally on your device only</strong>. We do not run user accounts and we cannot access this data.</p>
-
-  <h2>5. What we do NOT do</h2>
+  <h2>3. Protecting the verification service</h2>
   <ul>
-    <li>No ads, no trackers, no analytics SDKs that profile you.</li>
+    <li><strong>App Attest key:</strong> to make sure checks come from the real Splash app, your iPhone creates a key with Apple's App Attest. Our service stores a random key identifier and its public key, plus a count of checks per day (counts are kept for 7 days). It is not linked to your name, Apple Account or any other identifier, and keys that go unused for a year are deleted.</li>
+    <li><strong>IP address:</strong> used only to limit how many checks can be sent per minute, and deleted within an hour.</li>
+  </ul>
+
+  <h2>4. Purchases and subscriptions</h2>
+  <p>Subscriptions are handled by Apple and managed through RevenueCat, our subscription infrastructure provider. RevenueCat receives purchase information (transaction details and a random app-specific identifier) so the app knows whether your subscription is active. We never see your payment details: Apple handles all payment processing.</p>
+
+  <h2>5. Data that stays on your iPhone</h2>
+  <ul>
+    <li><strong>Alarms, wake-up history, streaks and achievements</strong> are stored only on your device. We don't run user accounts and cannot access this data.</li>
+    <li><strong>Your own alarm sounds</strong> (recorded with the microphone or imported) are saved only on your device and never uploaded.</li>
+    <li><strong>Focus (morning app lock)</strong> uses Apple's Screen Time framework. The apps you choose are handed to Splash as anonymous tokens, and the "most used" list is drawn by iOS: neither your app usage nor which apps you chose ever leaves your iPhone.</li>
+    <li><strong>Notifications</strong> such as the bedtime reminder are scheduled locally on your device.</li>
+    <li><strong>Widget:</strong> your next alarm and streak are shared with Splash's widget through storage on your device.</li>
+    <li><strong>Diagnostics:</strong> crash and performance reports from iOS (MetricKit) are kept on your device and only reach us if you choose to attach them to a support email.</li>
+  </ul>
+
+  <h2>6. What we do NOT do</h2>
+  <ul>
+    <li>No ads, no tracking, no analytics SDKs that profile you.</li>
     <li>No selling or renting of any data.</li>
-    <li>No storing of photos, ever.</li>
-    <li>No collection of contacts, location, or health data.</li>
+    <li>No storing of your photos.</li>
+    <li>No collection of contacts, location or health data.</li>
   </ul>
 
-  <h2>6. Legal basis (GDPR)</h2>
-  <p>For users in the EU/EEA: we process your selfie under Art. 6(1)(b) GDPR — it is strictly necessary to provide the service you request (wake-up verification). Ephemeral processing means no personal data is retained after each verification.</p>
+  <h2>7. Legal basis (GDPR)</h2>
+  <p>For users in the EU/EEA: we process your selfie under Art. 6(1)(b) GDPR, because it is necessary to provide the service you ask for (wake-up verification). The App Attest key and IP address are processed under Art. 6(1)(f), our legitimate interest in keeping the verification service secure and preventing abuse.</p>
 
-  <h2>7. Your rights</h2>
-  <p>Under GDPR and similar laws you may request access, correction, or deletion of your data. Because selfies are not stored and app data lives only on your device, most requests can be satisfied by deleting the app. For anything else, email us and we'll respond within 30 days.</p>
+  <h2>8. Your rights</h2>
+  <p>Under GDPR and similar laws you may request access, correction or deletion of your data, object to processing, and complain to a supervisory authority (in Spain, the AEPD). Since selfies are not stored and app data lives only on your device, most requests are satisfied by deleting the app. For anything else, email us and we'll respond within 30 days.</p>
 
-  <h2>8. Children</h2>
-  <p>Splash is not directed at children under 13. We do not knowingly process data from children under 13.</p>
+  <h2>9. Children</h2>
+  <p>Splash is not directed at children under 13 (or the minimum age for digital services in your country). We do not knowingly process data from them.</p>
 
-  <h2>9. Changes</h2>
+  <h2>10. Changes</h2>
   <p>If we change this policy, we'll update this page and the "last updated" date. Material changes will be communicated in the app.</p>
 
-  <h2>10. Contact</h2>
+  <h2>11. Contact</h2>
   <p>Questions? <a href="mailto:splashalarm.app@gmail.com">splashalarm.app@gmail.com</a></p>
 </main>
 </body>
